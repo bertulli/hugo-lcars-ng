@@ -1,0 +1,137 @@
+:root {
+    /* Palette LCARS TNG/Voyager */
+    --lcars-black: #000000;
+    --lcars-orange: #ff9900;
+    --lcars-purple: #cc99cc;
+    --lcars-blue: #9999ff;
+    --lcars-red: #cc0000;
+    --lcars-beige: #ffcc99;
+    
+    /* Spaziatura tipica LCARS */
+    --gap: 5px;       /* Le linee nere tra i blocchi */
+    --curve: 30px;    /* Raggio della curva */
+    --bar-height: 40px; /* Altezza barre orizzontali */
+    --sidebar-width: 150px;
+}
+
+body {
+    background-color: var(--lcars-black);
+    color: var(--lcars-orange);
+    font-family: 'Antonio', 'Arial Narrow', sans-serif;
+    margin: 1rem;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+header {
+    border-bottom: 1px solid #222;
+    margin-bottom: 1rem;
+    text-transform: uppercase; /* LCARS è quasi sempre tutto maiuscolo */
+}
+
+footer {
+    border-top: 1px solid #222;
+    margin-top: 1rem;
+}
+
+a {
+    color: #00e;
+    text-decoration: none;
+}
+
+/* Layout Principale a Griglia */
+.lcars-container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: var(--sidebar-width) 1fr; /* Colonna Menu | Contenuto */
+    grid-template-rows: var(--bar-height) 1fr;       /* Barra Titolo | Contenuto */
+    gap: var(--gap);
+    padding: var(--gap);
+}
+
+/* 1. L'Intestazione (Header Bar) */
+.lcars-header {
+    grid-column: 2 / 3; /* Occupa la seconda colonna */
+    background-color: var(--lcars-orange);
+    border-top-right-radius: var(--curve);
+    border-bottom-right-radius: var(--curve);
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase; /* LCARS è quasi sempre tutto maiuscolo */
+}
+
+/* 2. Il Gomito (Top Left Corner) */
+.lcars-elbow {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    background-color: var(--lcars-orange);
+    border-top-left-radius: var(--curve);
+    /* Questo crea l'effetto "continuo" verso il basso */
+    margin-bottom: 0; 
+    position: relative;
+}
+
+/* Trucco per la curva interna del gomito */
+.lcars-elbow::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Sborda un po' per coprire */
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    /* Opzionale: aggiustamenti fini per la curva interna */
+}
+
+/* 3. La Barra Laterale (Menu) */
+.lcars-sidebar {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    text-transform: uppercase; /* LCARS è quasi sempre tutto maiuscolo */
+}
+
+/* 4. I Blocchi Componibili (Bottoni/Panel) */
+.lcars-block {
+    background-color: var(--lcars-purple); /* Colore default */
+    height: auto;
+    min-height: 40px; /* Altezza minima */
+    border-top-left-radius: var(--curve); /* Curva solo a sinistra */
+    border-bottom-left-radius: var(--curve);
+    display: flex;
+    align-items: center; /* Centra testo verticalmente */
+    justify-content: flex-end; /* Testo allineato a destra come in Star Trek */
+    padding-right: 10px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+/* Colori alternati per i blocchi */
+.lcars-block:nth-child(even) { background-color: var(--lcars-beige); }
+.lcars-block:hover { background-color: white; }
+
+/* Blocco riempitivo che si estende per riempire lo spazio */
+.lcars-spacer {
+    flex-grow: 1;
+    background-color: var(--lcars-blue);
+    border-bottom-left-radius: var(--curve);
+}
+
+/* 5. Area Contenuto Principale */
+.lcars-main {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    padding: 20px;
+    border: 2px solid var(--lcars-blue); /* Cornice opzionale */
+    border-radius: var(--curve);
+    color: var(--lcars-orange);
+    overflow-y: auto;
+}

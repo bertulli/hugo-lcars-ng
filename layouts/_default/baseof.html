@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode site.Language.Lang }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <header>
+      {{ partial "header.html" . }}
+    </header>
+
+    <div class="lcars-container">
+      
+      <div class="lcars-elbow"></div>
+      
+      <div class="lcars-header">
+        <span>{{ .Site.Title }} // {{ .Title }}</span>
+      </div>
+
+      <aside class="lcars-sidebar">
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL | relURL }}" class="lcars-block">
+          {{ .Name }}
+        </a>
+        {{ end }}
+        
+        <div class="lcars-block" style="background-color: var(--lcars-red)">MODE SELECT</div>
+        
+        <div class="lcars-spacer"></div>
+      </aside>
+
+      <main class="lcars-main">
+        {{ block "main" . }}{{ end }}
+      </main>
+
+    </div>
+    <footer>
+      {{ partial "footer.html" . }}
+    </footer>
+
+  </body>
+</html>

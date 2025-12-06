@@ -1,6 +1,7 @@
 :root {
     /* Palette LCARS TNG/Voyager */
     --lcars-black: #000000;
+    --lcars-gray: #101010;
     --lcars-orange: #ff9900;
     --lcars-purple: #cc99cc;
     --lcars-blue: #9999ff;
@@ -12,10 +13,13 @@
     --curve: 30px;    /* Raggio della curva */
     --bar-height: 40px; /* Altezza barre orizzontali */
     --sidebar-width: 150px;
+    font-size: 23px;
+
+    --background-color: var(--lcars-gray);
+    background-color: var(--background-color);
 }
 
 body {
-    background-color: var(--lcars-black);
     color: var(--lcars-orange);
     font-family: 'Antonio', 'Arial Narrow', sans-serif;
     margin: 1rem;
@@ -59,7 +63,7 @@ a {
     align-items: center;
     padding-left: 20px;
     font-size: 1.5rem;
-    color: black;
+    color: var(--lcars-black);
     font-weight: bold;
     text-transform: uppercase; /* LCARS è quasi sempre tutto maiuscolo */
 }

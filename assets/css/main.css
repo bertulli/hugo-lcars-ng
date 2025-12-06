@@ -7,6 +7,8 @@
     --lcars-blue: #9999ff;
     --lcars-red: #cc0000;
     --lcars-beige: #ffcc99;
+
+    --lcars-link: var(--lcars-blue);
     
     /* Spaziatura tipica LCARS */
     --gap: 5px;       /* Le linee nere tra i blocchi */
@@ -39,8 +41,13 @@ footer {
 }
 
 a {
-    color: #00e;
+    color: var(--lcars-link);
     text-decoration: none;
+    transition: color linear 0.2s;
+}
+
+a:hover {
+  color: #ffffff;
 }
 
 /* Layout Principale a Griglia */
@@ -115,7 +122,11 @@ a {
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color linear 0.2s;
+}
+
+a.lcars-block:hover {
+    color: black;
 }
 
 /* Colori alternati per i blocchi */

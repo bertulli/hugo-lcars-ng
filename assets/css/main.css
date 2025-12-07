@@ -63,7 +63,7 @@ a:hover {
 
 /* 1. L'Intestazione (Header Bar) */
 .lcars-header {
-    grid-column: 2 / 3; /* Occupa la seconda colonna */
+    grid-column: 2 / span 1; /* Occupa la seconda colonna */
     background-color: var(--lcars-orange);
     border-top-right-radius: var(--curve);
     border-bottom-right-radius: var(--curve);
@@ -78,8 +78,8 @@ a:hover {
 
 /* 2. Il Gomito (Top Left Corner) */
 .lcars-elbow {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
     background-color: var(--lcars-orange);
     border-top-left-radius: var(--curve);
     /* Questo crea l'effetto "continuo" verso il basso */
@@ -100,8 +100,8 @@ a:hover {
 
 /* 3. La Barra Laterale (Menu) */
 .lcars-sidebar {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
     display: flex;
     flex-direction: column;
     gap: var(--gap);
@@ -143,8 +143,8 @@ a.lcars-block:hover {
 
 /* 5. Area Contenuto Principale */
 .lcars-main {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
     padding: 20px;
     border: 2px solid var(--lcars-blue); /* Cornice opzionale */
     border-radius: var(--curve);

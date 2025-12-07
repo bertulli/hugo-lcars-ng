@@ -33,6 +33,7 @@ header {
     border-bottom: 1px solid #222;
     margin-bottom: 1rem;
     text-transform: uppercase; /* LCARS è quasi sempre tutto maiuscolo */
+    text-align: center;
 }
 
 footer {

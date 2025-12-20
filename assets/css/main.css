@@ -14,6 +14,7 @@
     --gap: 5px;       /* Le linee nere tra i blocchi */
     --curve: 30px;    /* Raggio della curva */
     --bar-height: 40px; /* Altezza barre orizzontali */
+    --header-bar-height: calc(var(--bar-height) + var(--gap));
     --sidebar-width: 150px;
     font-size: 23px;
 
@@ -54,11 +55,22 @@ a:hover {
 /* Layout Principale a Griglia */
 .lcars-container {
     display: grid;
-    height: 100vh;
-    grid-template-columns: var(--sidebar-width) 1fr; /* Colonna Menu | Contenuto */
-    grid-template-rows: var(--bar-height) 1fr;       /* Barra Titolo | Contenuto */
+    grid-template-columns: var(--sidebar-width) 1fr;    /* Colonna Menu | Contenuto */
+    grid-template-rows: var(--header-bar-height) 1fr;   /* Barra Titolo | Contenuto */
     gap: var(--gap);
     padding: var(--gap);
+}
+
+.lcars-header-background {
+    grid-column: 1 / 2;
+    grid-row: 1 / span 1;
+    width: 100vw;
+    height: calc(100% + 1 * var(--gap));
+    background-color: var(--background-color);
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
 }
 
 /* 1. L'Intestazione (Header Bar) */
@@ -70,10 +82,18 @@ a:hover {
     display: flex;
     align-items: center;
     padding-left: 20px;
+    /* margin-top: var(--gap); */
     font-size: 1.5rem;
     color: var(--lcars-black);
     font-weight: bold;
     text-transform: uppercase; /* LCARS è quasi sempre tutto maiuscolo */
+    position: sticky;
+    top: var(--gap);
+    margin-top: var(--gap);
+    /* padding-top: var(--gap); */
+    /* margin-bottom: var(--gap); */
+    padding-bottom: var(--gap);
+    z-index: 5;
 }
 
 /* 2. Il Gomito (Top Left Corner) */
@@ -84,7 +104,15 @@ a:hover {
     border-top-left-radius: var(--curve);
     /* Questo crea l'effetto "continuo" verso il basso */
     margin-bottom: 0; 
+    /* margin-top: var(--gap); */
     position: relative;
+    position: sticky;
+    top: var(--gap);
+    margin-top: var(--gap);
+    padding-top: var(--gap);
+    /* margin-bottom: var(--gap); */
+    /* padding-bottom: var(--gap); */
+    z-index: 10;
 }
 
 /* Trucco per la curva interna del gomito */
@@ -105,7 +133,14 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: var(--gap);
+    /* border: 20px; */
+    /* border-top: 20px; */
     text-transform: uppercase; /* LCARS è quasi sempre tutto maiuscolo */
+    position: sticky;
+    top: calc(var(--header-bar-height) + var(--gap));
+    height: fit-content;
+    padding-bottom: var(--gap);
+    background-color: var(--background-color);
 }
 
 /* 4. I Blocchi Componibili (Bottoni/Panel) */
@@ -136,9 +171,15 @@ a.lcars-block:hover {
 
 /* Blocco riempitivo che si estende per riempire lo spazio */
 .lcars-spacer {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
     flex-grow: 1;
     background-color: var(--lcars-blue);
     border-bottom-left-radius: var(--curve);
+    top-margin: var(--gap);
+    top-padding: var(--gap);
+    bottom-margin: var(--gap);
+    bottom-padding: var(--gap);
 }
 
 /* 5. Area Contenuto Principale */

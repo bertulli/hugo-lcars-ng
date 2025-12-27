@@ -1,7 +1,7 @@
 name = 'Theme name'
-license = 'MIT'
-licenselink = 'https://github.com/owner/repo/LICENSE'
 description = 'Theme description'
+license = 'GPL3'
+licenselink = 'https://github.com/bertulli/hugo-lcars-ng/COPYING'
 
 # The home page of the theme, where the source can be found
 homepage = 'https://github.com/owner/repo'

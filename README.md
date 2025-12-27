@@ -15,6 +15,9 @@ theme = 'hugo-lcars-ng'
 ## Configuration
 This is still a very alpha level project. For now, you can directly modify the `lcars-ng/assets/css/main.css` file.
 
+## A note about the license
+The project is licensed with the [**GPLv3**](https://www.gnu.org/licenses/gpl-3.0.html) (see the [`COPYING`](./COPYING) file). It may be relicensed in the future with a more permissive free license. I wanted it to be free software because I want it to contribute to the common work of the human race, and I'd like this effort will pass and grow along the people who will enjoy it. I intend here with the GPLv3 redistribution clause that you can use the theme for any Hugo site you want, even for closed content, but if you distribute the site with the theme and modify it, you need to use the GPLv3 license too. If it were up to me, I would also add the [Hippocratic License](https://firstdonoharm.dev/) or the simple belief that ["software shall be used for good, not evil"](https://en.wikipedia.org/wiki/Douglas_Crockford), but this technically is incompatible with the free licenses. Please, if you use this, do your best to uphold this additional principle.
+
 ## Credits
 The theme is mainly developed by Alessandro Bertulli ([Ensign's Blog](https://www.ensignsblog.net)), but inspiration was taken by all the other extremely cool themes at theme Star Trek present out there. Among the others, I can cite:
 

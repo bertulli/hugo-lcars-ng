@@ -1,5 +1,5 @@
 :root {
-    /* Palette LCARS TNG/Voyager */
+    /* LCARS TNG/Voyager palette */
     --lcars-black: #000000;
     --lcars-gray: #101010;
     --lcars-orange: #ff9900;
@@ -10,10 +10,10 @@
 
     --lcars-link: var(--lcars-blue);
     
-    /* Spaziatura tipica LCARS */
-    --gap: 5px;       /* Le linee nere tra i blocchi */
-    --curve: 30px;    /* Raggio della curva */
-    --bar-height: 40px; /* Altezza barre orizzontali */
+    /* LCARS typical spacing */
+    --gap: 5px;         /* Black lines between blocks */
+    --curve: 30px;      /* Radius of the curve */
+    --bar-height: 40px; /* Horizontal bars' height */
     --header-bar-height: calc(var(--bar-height) + var(--gap));
     --sidebar-width: 150px;
     font-size: 23px;
@@ -33,7 +33,7 @@ body {
 header {
     border-bottom: 1px solid #222;
     margin-bottom: 1rem;
-    text-transform: uppercase; /* LCARS è quasi sempre tutto maiuscolo */
+    text-transform: uppercase; /* LCARS is usually uppercase */
     text-align: center;
 }
 
@@ -52,11 +52,11 @@ a:hover {
   color: #ffffff;
 }
 
-/* Layout Principale a Griglia */
+/* Main layout (grid) */
 .lcars-container {
     display: grid;
-    grid-template-columns: var(--sidebar-width) 1fr;    /* Colonna Menu | Contenuto */
-    grid-template-rows: var(--header-bar-height) 1fr;   /* Barra Titolo | Contenuto */
+    grid-template-columns: var(--sidebar-width) 1fr;    /* Menu column | Content */
+    grid-template-rows: var(--header-bar-height) 1fr;   /* Title bar   | Content */
     gap: var(--gap);
     padding: var(--gap);
 }
@@ -73,9 +73,9 @@ a:hover {
     z-index: 1;
 }
 
-/* 1. L'Intestazione (Header Bar) */
+/* 1. Heading (Header bar) */
 .lcars-header {
-    grid-column: 2 / span 1; /* Occupa la seconda colonna */
+    grid-column: 2 / span 1; /* Occupies the second column */
     background-color: var(--lcars-orange);
     border-top-right-radius: var(--curve);
     border-bottom-right-radius: var(--curve);
@@ -86,7 +86,7 @@ a:hover {
     font-size: 1.5rem;
     color: var(--lcars-black);
     font-weight: bold;
-    text-transform: uppercase; /* LCARS è quasi sempre tutto maiuscolo */
+    text-transform: uppercase; /* Again, usually uppercase */
     position: sticky;
     top: var(--gap);
     margin-top: var(--gap);
@@ -96,13 +96,13 @@ a:hover {
     z-index: 5;
 }
 
-/* 2. Il Gomito (Top Left Corner) */
+/* 2. Elbow (Top left corner) */
 .lcars-elbow {
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
     background-color: var(--lcars-orange);
     border-top-left-radius: var(--curve);
-    /* Questo crea l'effetto "continuo" verso il basso */
+    /* This is for the "continuous" effect to the bottom */
     margin-bottom: 0; 
     /* margin-top: var(--gap); */
     position: relative;
@@ -115,18 +115,18 @@ a:hover {
     z-index: 10;
 }
 
-/* Trucco per la curva interna del gomito */
+/* Trick for the internal elbow curve */
 .lcars-elbow::after {
     content: "";
     position: absolute;
-    bottom: -10px; /* Sborda un po' per coprire */
+    bottom: -10px; /* Exceeds a bit to cover */
     right: -10px;
     width: 20px;
     height: 20px;
-    /* Opzionale: aggiustamenti fini per la curva interna */
+    /* Optional: small adjustments for the internal curve */
 }
 
-/* 3. La Barra Laterale (Menu) */
+/* 3. Lateral bar (Menu) */
 .lcars-sidebar {
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
@@ -135,7 +135,7 @@ a:hover {
     gap: var(--gap);
     /* border: 20px; */
     /* border-top: 20px; */
-    text-transform: uppercase; /* LCARS è quasi sempre tutto maiuscolo */
+    text-transform: uppercase; /* Again uppercase*/
     position: sticky;
     top: calc(var(--header-bar-height) + var(--gap));
     height: fit-content;
@@ -143,16 +143,16 @@ a:hover {
     background-color: var(--background-color);
 }
 
-/* 4. I Blocchi Componibili (Bottoni/Panel) */
+/* 4. Composable blocks (buttons/panels) */
 .lcars-block {
-    background-color: var(--lcars-purple); /* Colore default */
+    background-color: var(--lcars-purple); /* Default color */
     height: auto;
-    min-height: 40px; /* Altezza minima */
-    border-top-left-radius: var(--curve); /* Curva solo a sinistra */
+    min-height: 40px;
+    border-top-left-radius: var(--curve); /* Curve just to the left */
     border-bottom-left-radius: var(--curve);
     display: flex;
-    align-items: center; /* Centra testo verticalmente */
-    justify-content: flex-end; /* Testo allineato a destra come in Star Trek */
+    align-items: center; /* Center text */
+    justify-content: flex-end; /* Text aligned to the right */
     padding-right: 10px;
     color: black;
     font-weight: bold;
@@ -165,11 +165,11 @@ a.lcars-block:hover {
     color: black;
 }
 
-/* Colori alternati per i blocchi */
+/* Alternate colors for the blocks */
 .lcars-block:nth-child(even) { background-color: var(--lcars-beige); }
 .lcars-block:hover { background-color: white; }
 
-/* Blocco riempitivo che si estende per riempire lo spazio */
+/* Spacer block, extending to fill the remaining space */
 .lcars-spacer {
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
@@ -182,12 +182,12 @@ a.lcars-block:hover {
     bottom-padding: var(--gap);
 }
 
-/* 5. Area Contenuto Principale */
+/* 5. Main content area */
 .lcars-main {
     grid-column: 2 / span 1;
     grid-row: 2 / span 1;
     padding: 20px;
-    border: 2px solid var(--lcars-blue); /* Cornice opzionale */
+    border: 2px solid var(--lcars-blue); /* Optional border */
     border-radius: var(--curve);
     color: var(--lcars-orange);
     overflow-y: auto;
